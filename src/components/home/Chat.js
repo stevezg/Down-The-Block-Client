@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import socketClient from "socket.io-client"
+import { API_BASE_URL } from '../../config';
 
 export class Chat extends React.Component{
   constructor(props){
@@ -8,8 +9,8 @@ export class Chat extends React.Component{
     this.state={
       messages: []
     }
-    this.socket = socketClient("http://localhost:8080"); 
-    console.log(this.socket); 
+    this.socket = socketClient(API_BASE_URL);
+    console.log(this.socket);
     this.socket.on("chat-message", (msg)=>{
       this.setState({messages: [...this.state.messages, msg]})})
   }
