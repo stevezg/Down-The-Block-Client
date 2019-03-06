@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom';
 import { clearAuthToken } from '../common/local-storage';
 import './sidebar.scss';
 import { fetchChat, fetchPinnedChatUsers, deletePinnedChat } from '../../actions/chatMessages';
+import { focusOn } from '../../actions/navigation';
 import { formatName } from '../common/helper-functions'
 
 const mql = window.matchMedia(`(min-width: 900px)`);
@@ -115,6 +116,7 @@ class SidebarNav extends React.Component{
                   onClick={()=>{
                     this.onSetSidebarOpen(false)
                     this.props.dispatch(fetchPosts(this.props.coords, 'neighbors'))
+                    this.props.dispatch(focusOn('searchPosts'));
                   }
                   }>Neighbors
                 </Link>
@@ -134,6 +136,7 @@ class SidebarNav extends React.Component{
                 onClick={()=>{
                   this.onSetSidebarOpen(false)
                   this.props.dispatch(display('searchUsers'))
+                  this.props.dispatch(focusOn('searchDirectory'))
                 }}
               ><i className="fas fa-comments"></i> Messages 
               </button>
@@ -172,6 +175,7 @@ class SidebarNav extends React.Component{
                   className="content"
                   onClick={() => {
                     this.onSetSidebarOpen(false)
+                    this.props.dispatch(focusOn('loginUsername'))
                     this.logOut()
                     }
                   }>

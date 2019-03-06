@@ -21,7 +21,7 @@ export class About extends React.Component{
           <article className="text">
             <h2>Your Neighborhood At Your Fingertips</h2>
             <p>
-            DownTheBlock gives you a convenient way to stay informed by connecting you with all your neighbors. Lost a pet and desperately need your neighbors help to find him/her?  Hear a helicopter hovering above your house and don't know why? Join DownTheBlock today and you'll be up-to-date on everything happening close to home as well as in the broader community. From criminal activity to local events, you'll hear it all from here!
+            DownTheBlock connects you with your neighborhood and provides a convenient way of staying informed. Whether you lost your pet, are throwing an event, or want to be aware of the latest criminal activity around you, DownTheBlock is here to help. Join today to stay up-to-date on everything happening close to home as well as in the broader community!
             </p>
             {!this.props.loggedIn && <button
               type="button"

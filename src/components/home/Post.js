@@ -27,7 +27,12 @@ export class Post extends React.Component {
     if(this.props.userId.id===this.props.loggedInUserId){
       return (
         <button
-          onClick={()=>this.props.dispatch(deletePost(postId))} >
+          onClick={()=> {
+            let confirmDelete = window.confirm('Are you sure you want to delete this post?');
+            if(confirmDelete){
+              this.props.dispatch(deletePost(postId))
+            }
+          }} >
           <i className="fas fa-trash"></i>
         </button>)
     }

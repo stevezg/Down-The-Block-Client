@@ -10,10 +10,12 @@ export class SettingsPage extends React.Component{
   componentDidMount(){
     document.title = `${this.props.currentUser.firstName}'s Settings`;
     window.scrollTo(0, 0);
+    this.button.focus();
   }
 
   componentDidUpdate(){
     window.scrollTo(0, 0); //make it jump to top
+    this.button.focus();
     if(this.props.successMessage){
       //set a timer that changes the message back to null after seven seconds of displaying it
       setTimeout(
@@ -46,8 +48,9 @@ export class SettingsPage extends React.Component{
               :
               <img className="profile-photo" src={this.props.currentUser.photo.url} alt="profile"/>
             }
-                    <button 
+          <button 
               type="button"
+              ref={input=>this.button=input}
               className="update-photo"
               onClick={()=>this.img.click()}
           >

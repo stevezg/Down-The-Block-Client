@@ -9,7 +9,7 @@ export class Forum extends React.Component{
 
   componentDidMount(){
     window.scrollTo(0, 0);
-    document.title='DownTheBlock'
+    document.title='DownTheBlock';
   }
 
   render(){

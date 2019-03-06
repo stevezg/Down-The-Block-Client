@@ -15,7 +15,7 @@ export class LogInForm extends React.Component {
     onClick(focus=""){
         this.props.dispatch(display(focus));
         this.props.dispatch(focusOn(focus));
-      }
+    }
     
     generateError(){
         let error;

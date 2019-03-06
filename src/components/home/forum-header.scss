@@ -29,6 +29,7 @@
 .search::placeholder{
   font-size: 12px;
   font-family: $normalFont;
+  padding-top: 5px;
 }
 
 .forum-header .fa-search{
@@ -87,9 +88,5 @@
   .filter-posts{
     order: 3;
     flex: 1;
-  }
-
-  .forum-header .fa-search{
-    margin-top:0px;
   }
 }

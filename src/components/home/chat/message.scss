@@ -15,7 +15,6 @@
   border-radius: 50%;
 }
 
-
 .chat-container h1{
   font-family: $appFont;
   text-align: center;
@@ -79,6 +78,13 @@ textarea.send-message{
   height: 50px;
   padding: 10px;
   box-shadow: 0 0 4px grey;
+  transition: .5s;
+  font-size: 15px;
+  font-family: $normalFont;
+}
+
+textarea.send-message:focus{
+  box-shadow: 0 0 10px grey;
 }
 
 .send-message-button{
@@ -88,6 +94,7 @@ textarea.send-message{
   background: none;
   font-size: 30px;
   cursor: pointer;
+  transition: .5s;
 }
 
 .send-message-button:hover, .send-message-button:focus{

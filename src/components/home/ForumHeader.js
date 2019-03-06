@@ -6,6 +6,13 @@ import { changeSearchTerm, changeCategoryFilter } from '../../actions/posts'
 import './forum-header.scss';
 
 export class ForumHeader extends React.Component{
+  componentDidMount(){
+    this.search.focus();
+  }
+
+  componentDidUpdate(prevProps){
+    this.search.focus();
+  }
   
   whichForum(){
     return (
@@ -67,6 +74,17 @@ export class ForumHeader extends React.Component{
       <header className="forum-header">
 
         {this.whichForum()}
+        <div>
+        <i className="fas fa-search"></i>
+
+        <input 
+          ref={input=>this.search=input}
+          type="text" 
+          onChange={e=>this.props.dispatch(changeSearchTerm(e.target.value))} 
+          className="search" 
+          placeholder={`Search ${this.props.type==="neighbors" ? "Neighborhood" : "City"} Forum`}/> 
+
+      </div>
         <Select
           defaultValue={filterOptions[0]} 
           options={filterOptions} 
@@ -75,18 +93,14 @@ export class ForumHeader extends React.Component{
           onChange={option => this.props.dispatch(changeCategoryFilter(option.value))}
           styles={colorStyles}
         />
-
-        <i className="fas fa-search"></i>
-
-        <input 
-          type="text" 
-          onChange={e=>this.props.dispatch(changeSearchTerm(e.target.value))} 
-          className="search" 
-          placeholder={`Search ${this.props.type==="neighbors" ? "Neighborhood" : "City"} Forum`}/> 
-
+        
       </header>
     );
   }
 }
 
-export default connect()(ForumHeader)
+const mapStateToProps = state => ({
+  focusOn: state.nav.focus,
+});
+
+export default connect(mapStateToProps)(ForumHeader)

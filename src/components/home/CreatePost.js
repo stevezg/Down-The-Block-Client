@@ -228,7 +228,8 @@ export class CreatePost extends React.Component{
             </label>
 
             </section>
-
+          <hr className="divider"></hr>
+          <section className="upload-and-post">
           {!editMode && 
           <React.Fragment> 
             <button 
@@ -250,6 +251,7 @@ export class CreatePost extends React.Component{
             </React.Fragment>
           }
             {this.generateButtons()}
+          </section>
           </div>
       </form>
     </div>

@@ -49,7 +49,6 @@
 
 .options{
   float: right;
-  color: $darkGreen;
 }
 
 .options button {
@@ -59,6 +58,11 @@
   padding: 7px;
   margin-left: 2px;
   font-size: 12px;
+}
+
+.options button:hover, .options button:focus{
+  color: $darkGreen;
+  text-shadow: 1px 1px $beige;
 }
 
 .post .profile-photo{
@@ -111,6 +115,7 @@
 .comment-profile-photo-avatar{
   width:35px;
   height: 35px;
+  min-width: 35px;
   font-size: 15px;
   margin-left: 15px;
 }
@@ -118,6 +123,7 @@
 .comment-profile-photo{
   width:35px;
   height: 35px;
+  min-width: 35px;
   border-radius: 50%;
 }
 
@@ -183,6 +189,11 @@ vertical-align: top;
   font-family: $normalFont;
   font-size: 16px;
   color: $darkGreen;
+  transition: .5s;
+}
+
+.comment-textarea:focus{
+  box-shadow: 0 0 4px grey;
 }
 
 .comment-option{
@@ -211,7 +222,7 @@ vertical-align: top;
   height: 80px;
   margin: auto;
   display: block;
-  border: none;
+  border: 2px solid transparent;
   outline: 0;
   resize: none;
   border-radius: 10px;
@@ -219,6 +230,15 @@ vertical-align: top;
   font-family: $normalFont;
   font-size: 16px;
   color: $darkGreen;
+  box-shadow: none;
+  transition: .5s;
+}
+
+.create-post-textarea:focus{
+  border: 2px solid rgb(181, 179, 179);
+  border-bottom: 2px solid transparent;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .modal .post-form{
@@ -234,6 +254,7 @@ input[type="radio"] {
   display: block;
   width: fit-content;
   margin: auto;
+  border-radius: 7px;
 }
 
 .post-form label, .post-form button{
@@ -268,7 +289,28 @@ input[type="radio"] {
   border: 2px solid $darkGreen;
 }
 
-@media(min-width: 525px){
+section.upload-and-post{
+  margin: auto;
+  width: fit-content;
+}
+
+section.upload-and-post .upload-photo{
+  margin-right: 20px;
+}
+
+.divider{
+  margin: 0;
+}
+
+@media(min-width: 550px){
+  .divider{
+    display: none;
+  }
+
+  section.upload-and-post{
+    margin: 0;
+  }
+
   .bottom-options{
     display: flex;
     justify-content: space-between;

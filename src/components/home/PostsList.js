@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import Post from './Post';
 import { fetchPosts } from '../../actions/posts';
 import { filterPostsBySearch, filterByCategory } from '../common/helper-functions'
+import logo from '../../img/logo.png';
+import moment from 'moment';
 
 export class PostsList extends React.Component{
   componentDidMount(){
@@ -10,6 +12,24 @@ export class PostsList extends React.Component{
   }
 
   generatePosts(){
+    if(this.props.posts.length===0){
+      let post={
+        category: "Other",
+        content: "Looks like there aren't any posts yet in this forum. Be the first and post something above!",
+        date: moment().format('LLLL'),
+        postId: "123",
+        comments: [],
+        userId: {
+          firstName: "DownTheBlock",
+          photo: {
+            url: logo,
+          },
+          id: '123'
+        }
+      }
+      return <Post {...post} />
+    }
+
     let posts = this.props.posts.map((post)=> <Post key={post.id} postId={post.id} {...post} />);
 
     if(this.props.searchTerm){
