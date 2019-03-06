@@ -65,14 +65,10 @@ class AddressForm extends React.Component {
                     <div className="autocomplete-dropdown-container">
                       {suggestions.map(suggestion => {
                         const className = 'suggestion-item';
-                        //   const style = suggestion.active
-                        //   ? { backgroundColor: '#06311f', color: 'rgb(237, 236, 217)', cursor: 'pointer' }
-                        //   : { backgroundColor: 'white', cursor: 'pointer' };
                         return (
                           <div
                             {...getSuggestionItemProps(suggestion, {
                               className,
-                              // style
                             })}
                           >
                             <span>{suggestion.description}</span>

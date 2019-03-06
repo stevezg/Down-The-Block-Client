@@ -68,8 +68,6 @@
 
 [Deployed Client On Heroku](https://down-the-block.herokuapp.com)
 
-[Project Management Trello Link](https://trello.com/b/hPCzbOTZ/neighborhood-watch "trello")
-
 ## Demo Info (Friends Edition)
 **Since this is  a geolocation app, to properly see the pre-populated demo you must block your location on your browser**
 - Account Username: ross
