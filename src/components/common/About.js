@@ -1,19 +1,62 @@
 import React from 'react';
-import requiresLogin from '../common/requires-login';
+import {connect} from 'react-redux';
+import mockup from '../../img/mockup.png';
+import { display, focusOn } from '../../actions/navigation'
+import './about.scss';
 
 export class About extends React.Component{
-
   componentDidMount(){
-    document.title = 'About';
+    document.title='DownTheBlock'
+  }
+
+  onClick(focus=""){
+    this.props.dispatch(display(focus));
+    this.props.dispatch(focusOn(focus));
   }
 
   render(){
     return(
-      <p className="about" id="about">
-        Are you curious about what’s going on in your neighborhood? Hear a helicopter hovering around your house and can’t figure out why? Lost a pet and desperately need your neighbors help to find him/her? Wouldn’t it be helpful if there was a convenient way to directly communicate with all your nearby neighbors, especially if you don’t have their phone numbers? Neighborhood Watch is here to help. Make an account, allow the app to use your location, and you’ll be immediately placed in a forum with everyone nearby also on the app. Neighbors can then easily communicate to each other about any recent criminal activity, accidents, robberies, events, parties, etc. that are happening nearby so everyone’s in the loop. And you can even send your neighbor a DM!
-      </p>
+      <React.Fragment>
+        <section className="about">
+          <article className="text">
+            <h2>Your Neighborhood At Your Fingertips</h2>
+            <p>
+            DownTheBlock connects you with your neighborhood and provides a convenient way of staying informed. Whether you lost your pet, are throwing an event, or want to be aware of the latest criminal activity around you, DownTheBlock is here to help. Join today to stay up-to-date on everything happening close to home as well as in the broader community!
+            </p>
+            {!this.props.loggedIn && <button
+              type="button"
+              className="join-today"
+              onClick={()=>this.onClick('registerUsername')} 
+            > Join Your Neighborhood</button>}
+          </article>
+          <img className="mockup" src={mockup} alt="mockup"/>
+        </section>
+        <section className="about-icons">
+          <div className="icon-holder">
+            <i className="fas fa-map-marker-alt"></i>
+            <p>Geofilter conveniently gives you access to your own community</p>
+          </div>
+          <div className="icon-holder">
+            <i className="fas fa-edit"></i>
+            <p>Post In Forums To Help Keep Your Neighborhood In The Loop</p>
+          </div>
+          <div className="icon-holder">
+            <i className="fas fa-search"></i>
+            <p>Easily Search And Filter Forums To Find What You're Interested In</p>
+          </div>
+          <div className="icon-holder">
+            <i className="fas fa-comments"></i>
+            <p>Directly Message Your Neighbors For A More Personal Experience</p>
+          </div>
+          
+        </section>
+      </React.Fragment>
     );
   }
 }
 
-export default requiresLogin()(About);
+const mapStateToProps = state => ({
+  loggedIn: state.auth.currentUser !== null,
+});
+
+export default connect(mapStateToProps)(About);

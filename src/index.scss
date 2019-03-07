@@ -1,0 +1,81 @@
+@import "~./components/common/constants.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $normalFont;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $lightGray;
+}
+
+#root{
+  min-height: 100vh;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+  margin:0;
+}
+
+form .highlight-red{
+  border: 2px solid $darkRed;
+  border-radius: 5px;
+}
+
+.form-error{
+  color: #aa2d2d;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.success-message{
+  color: $darkGreen;
+  text-align: center;
+  padding: 10px;
+  font-size:20px;
+  font-family: $appFont;
+}
+
+button:focus{
+  outline: 0;
+}
+
+/*CUSTOM FILE INPUT*/
+.image-input{
+  display: none;
+}
+
+.upload-photo{
+  color: $darkGreen;
+  background: none;
+  border: 0;
+  font-size: 20px;
+  font-family: $appFont;
+  margin:auto;
+  cursor:pointer;
+}
+
+.upload-photo:focus{
+  outline: 0;
+}
+
+.app{
+  outline: 0;
+}
+
+footer{
+  background: $darkGreen;
+  font-family: Play;
+  color: $beige;
+  text-align: right;
+  padding: 10px 30px 10px 10px;
+}
+
+p{
+  line-height: 1.5;
+  font-family: $normalFont;
+}

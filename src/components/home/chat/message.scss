@@ -1,0 +1,108 @@
+@import "~../../common/constants.scss";
+.chat-message {
+  display: flex;
+  align-items: center;
+  margin: auto 10px;
+}
+
+.mine.chat-message{
+  flex-direction: row-reverse;
+}
+
+.chat-message .profile-photo-avatar, .chat-message .profile-photo{
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.chat-container h1{
+  font-family: $appFont;
+  text-align: center;
+  padding: 20px 10px;
+  color: $darkGreen;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+
+.chat-container h3{
+  font-family: $appFont;
+  text-align: center;
+  color: $darkGreen;
+  background: $beige;
+  padding: 8px;
+  width: fit-content;
+  margin: auto;
+}
+
+.messages{
+  display: flex;
+  flex-direction: column;
+}
+
+.message{
+  width: 75%;
+  font-family: $normalFont;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.chat-time{
+  font-size:10px;
+}
+
+.mine.message{
+  background: #0379a9;
+  color: white; 
+  align-self: flex-end;
+}
+
+.theirs.message{
+  background: #e4e4e0;
+  color: black; 
+  align-self: flex-start;
+}
+
+.send-message-form{
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+}
+
+textarea.send-message{
+  resize: none;
+  outline: 0;
+  border: none;
+  border-radius: 15px;
+  width: 90%;
+  height: 50px;
+  padding: 10px;
+  box-shadow: 0 0 4px grey;
+  transition: .5s;
+  font-size: 15px;
+  font-family: $normalFont;
+}
+
+textarea.send-message:focus{
+  box-shadow: 0 0 10px grey;
+}
+
+.send-message-button{
+  color: $darkGreen;
+  opacity: .8;
+  border: none;
+  background: none;
+  font-size: 30px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.send-message-button:hover, .send-message-button:focus{
+  opacity: 1;
+}
+
+@media(min-width: 600px){
+  .message{
+    width: 50%;
+  }
+}

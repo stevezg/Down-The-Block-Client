@@ -1,0 +1,64 @@
+@import "~../common/constants.scss";
+
+.addressDiv .parallax, .addressDiv .intro{
+  height: 100vh;
+}
+
+.addressDiv h1{
+  margin: 20px auto;
+  text-align: center;
+  font-size: 40px;
+}
+
+.addressDiv .text{
+  line-height: 1.5;
+  text-align: center;
+  font-family: "Open Sans";
+  color: #06311f;
+  font-size: 20px;
+}
+
+.address-container{
+  background: $beige;
+  width: 80%;
+  margin: 40px auto;
+  padding: 40px;
+}
+
+.address-form input{
+  padding: 20px;
+  font-size: 20px;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  color: $darkGreen;
+  border-radius: 5px;
+  font-family: $normalFont;
+  display: block;
+  border: 2px solid $darkGreen;
+  height: 50px;
+}
+
+.autocomplete-dropdown-container {
+  border-radius: 5px;
+  background: white;
+  position: relative;
+  width: 100%;
+}
+
+.suggestion-item{
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover, .suggestion-item:focus{
+  padding: 10px;
+  background: $darkGreen;
+  color: $beige;
+}
+
+@media(min-width:900px){
+  .address-container{
+    width: 60%;
+  }
+}

@@ -1,0 +1,87 @@
+@import "~./constants.scss";
+
+.main-navbar{
+  background-color: $darkGreen;
+  position: fixed;
+  width:100%;
+  z-index: 1000;
+  border-bottom: 2px solid $beige;
+}
+
+.right{
+  float:right;
+  padding-right: 5px;
+}
+
+.logo, .landing-page-logo, .link{
+  color: $beige;
+  text-decoration: none;
+  padding: 5px 0;
+  margin: 10px 10px;
+  cursor:pointer;
+  background-color: transparent;
+  border: none;
+  font-family: $appFont;
+  display: inline-block;
+  transition: ease-in-out .5s;
+  font-size: 15px;
+}
+
+.logo{
+  text-align:left;
+  font-weight: 700;
+  margin-left:40px;
+  font-size: 20px;
+}
+
+.logo:focus, .landing-page-logo:focus{
+  outline: 0;
+}
+
+.landing-page-logo{
+  text-align:left;
+  font-weight: 700;
+  margin-left:5px;
+  font-size: 18px;
+}
+
+.link{
+  margin-top: 8px;
+  border-bottom: 2px dashed transparent;
+  border-top: 2px dashed transparent;
+}
+
+.link:hover, .link:focus {
+  outline: 0;
+  border-bottom: 2px dashed $beige;
+  border-top: 2px dashed $beige;
+}
+
+.tagline{
+  color: $beige;
+  font-family: $appFont;
+  display: none;
+}
+
+@media(min-width: 750px){
+  .tagline{
+    display: inline;
+  }
+
+  .logo, .landing-page-logo{
+    font-size: 30px;
+  }
+
+  .landing-page-logo{
+    margin-left: 30px;
+  }
+
+  .right{
+    padding-right: 30px;
+    padding-top: 8px;
+  }
+
+  .link{
+    font-size: 18px;
+  }
+}

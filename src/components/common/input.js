@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { focusOn} from '../../actions/navigation';
+import { focusOn } from '../../actions/navigation';
+import { formError } from '../../actions/auth';
 
 
 export class Input extends React.Component {
@@ -25,14 +26,10 @@ export class Input extends React.Component {
 
         let error;
         if (this.props.meta.touched && this.props.meta.error) {
-            error = <div className="form-error">{this.props.meta.error}</div>;
-        }
-
-        let warning;
-        if (this.props.meta.touched && this.props.meta.warning) {
-            warning = (
-                <div className="form-warning">{this.props.meta.warning}</div>
-            );
+            error= this.props.label + ' ' + this.props.meta.error;
+            if(this.props.meta.error!=="Required"){
+                this.props.dispatch(formError(error));
+            }
         }
 
         let element = (<Element
@@ -44,6 +41,7 @@ export class Input extends React.Component {
             type={this.props.type}
             ref={input => (this.input = input)}
             autoFocus = {this.props.autoFocus}
+            className={error && "highlight-red"}
             >
             {this.props.children}
         </Element>)
@@ -58,6 +56,7 @@ export class Input extends React.Component {
                 type={this.props.type}
                 ref={input => (this.input = input)}
                 autoFocus = {this.props.autoFocus}
+                className={error && "highlight-red"}
             >
             </Element>)
         }
@@ -66,8 +65,6 @@ export class Input extends React.Component {
             <div className="form-input">
                 <label htmlFor={this.props.input.name}>
                     {this.props.label}
-                    {error}
-                    {warning}
                 </label>
                 {element}
             </div>

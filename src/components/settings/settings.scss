@@ -1,0 +1,124 @@
+@import "~../common/constants.scss";
+
+.settings{
+  background: $lightGray;
+  border-radius: 5px;
+  // margin-top: 10px;
+  font-family: $appFont;
+}
+
+.settings.main{
+  margin-left:0;
+  padding-top: 20px;
+}
+
+.settings h2{
+  color: #06311f;
+  font-family: $appFont;
+  text-align: center;
+}
+
+.settings .update{
+  background: $darkGreen;
+  border: 1px solid $darkGreen;
+  border-radius: 4px;
+  color: $beige;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 20px;
+  transition: .5s;
+  font-family: $appFont;
+  width: 200px;
+  margin: auto;
+  display: block;
+}
+
+.settings .update:hover, .settings .update:focus {
+  background: $beige;
+  color: $darkGreen;
+}
+
+.settings form{
+  padding: 20px 30px;
+  font-size: 20px;
+  width: 100%;
+  color: $darkGreen;
+}
+
+.settings label{
+  flex:.5;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.settings input {
+  border-radius: 5px;
+  border: 2px solid $darkGreen;
+  background: white;
+  flex: 1;
+  font-size: 16px;
+  padding: 5px;
+  color: $darkGreen;
+}
+
+.settings input:focus{
+  outline: 0;
+  transition: .5s;
+  background: $beige;
+}
+
+.settings .form-input{
+  display: flex;
+  width: 100%;
+  margin: 20px auto;
+  align-items: center;
+}
+
+.settings .profile-photo-avatar, .settings .profile-photo{
+  width:150px;
+  height: 150px;
+  border-radius: 50%;
+  font-size: 20px;
+  margin: auto;
+  position: relative;
+}
+
+.settings .initials{
+  font-size: 40px;
+}
+
+.settings .update-photo{
+  border: 0;
+  position: absolute;
+  top: 50%;
+  left: 0.3%;
+  background:  rgba(237, 236, 217, 1);
+  color: $darkGreen;
+  width: 151px;
+  height: 75px;
+  border-bottom-left-radius: 110px;
+  border-bottom-right-radius: 110px;
+  font-family: $appFont;
+  font-size: 15px;
+  opacity: .9;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.settings .update-photo:focus, .settings .update-photo:hover{
+  opacity: 1;
+}
+
+@media(min-width:400px){
+  .settings label{
+    font-size: 20px;
+  }
+}
+
+@media(min-width:600px){
+  .settings form{
+    padding: 20px 20px;
+    width: 550px;
+    margin: auto;
+  }
+}

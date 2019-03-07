@@ -1,0 +1,119 @@
+@import "~../common/constants.scss";
+
+.about{
+  background: $beige;
+  color: $darkGreen;
+  font-size: 20px;
+  margin: auto;
+  padding: 50px 30px;
+  text-align: center;
+}
+
+.home .about{
+  background: $lightGray;
+}
+
+.about .text{
+  max-width: 600px;
+  margin: auto;
+}
+
+.about .text p {
+  line-height: 1.5;
+  text-align: center;
+  font-family: $normalFont;
+}
+
+.about h2{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.mockup{
+  width: 75%; 
+  height: 75%;
+  max-height: 450px;
+  max-width: 650px;
+}
+
+.mockup, .about .text{
+  flex: 1;
+}
+
+.about .join-today{
+  background: $darkGreen;
+  color: $beige;
+  border: none;
+  padding: 15px;
+  font-size: 20px;
+  margin: 20px auto;
+  display: block;
+  cursor:pointer;
+  border: 2px solid $darkGreen;
+  transition: .5s;
+  font-family: $appFont;
+}
+
+.about .join-today:hover, .about .join-today:focus{
+  background: $beige;
+  color: $darkGreen
+}
+
+.about-icons{
+  background: $beige;
+  color: $darkGreen;
+  padding: 50px 0px;
+  text-align: center;
+  box-shadow: 0 -5px 5px -5px $darkGreen;
+}
+
+.home .about-icons{
+  background: $lightGray;
+}
+
+
+.about-icons i {
+  font-size: 100px;
+  padding-bottom: 20px;
+}
+
+.about-icons p {
+  max-width: 200px;
+  margin: auto;
+  font-family: $normalFont;
+}
+
+.icon-holder{
+  margin: 20px 0;
+}
+
+@media(min-width: 900px){
+  .about-icons{
+    display: flex;
+    justify-content: space-around;
+  } 
+
+  .about{
+    padding: 50px 80px;
+  }
+
+  .mockup{
+    width: 50%;
+    height: 50%;
+  }
+}
+
+@media(min-width: 1250px){
+  .about{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .about h2{
+    text-align: left;
+  }
+
+  .about .text p{
+    text-align: left;
+  }
+}

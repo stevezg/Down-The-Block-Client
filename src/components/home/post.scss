@@ -1,0 +1,345 @@
+@import "~../common/constants.scss";
+/*GENERAL*/
+
+.crime{
+  background: #e36060;
+  border-bottom-left-radius: 5px;
+}
+
+.personal{
+  background: #47b5c6;
+}
+
+.event{
+  background: #c093d7;
+}
+
+.other{
+  background: #f3c59c;
+}
+
+.border-Crime{
+  box-shadow: 0 0 4px #e36060;
+}
+
+.border-Personal{
+  box-shadow: 0 0 4px #47b5c6;
+}
+
+.border-Event{
+  box-shadow: 0 0 4px #c093d7;
+}
+
+.border-Other{
+  box-shadow: 0 0 4px #f3c59c;
+}
+
+/*POST*/
+.entire-thread{
+  width: 80%;
+  margin: 20px auto 0px auto;
+  border-radius: 10px;
+}
+
+.post{
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.options{
+  float: right;
+}
+
+.options button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 7px;
+  margin-left: 2px;
+  font-size: 12px;
+}
+
+.options button:hover, .options button:focus{
+  color: $darkGreen;
+  text-shadow: 1px 1px $beige;
+}
+
+.post .profile-photo{
+  width:50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.post .profile-photo-avatar{
+  width:50px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.initials{
+  width: fit-content;
+  margin: auto;
+  font-family: $appFont;
+}
+
+.post-user-name{
+  display: inline;
+  }
+
+.post span{
+  display: inline;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.post .line{
+  padding-left: 5px;
+}
+
+/*COMMENTS*/
+
+.comments-list{
+  background: $lightGray;
+  font-family: $appFont;
+  padding-top: 5px;
+}
+
+.profile-photo-avatar, .comment-profile-photo-avatar{
+  border-radius: 50%;
+  color: white;
+  background: black;
+  display: flex;
+}
+
+.comment-profile-photo-avatar{
+  width:35px;
+  height: 35px;
+  min-width: 35px;
+  font-size: 15px;
+  margin-left: 15px;
+}
+
+.comment-profile-photo{
+  width:35px;
+  height: 35px;
+  min-width: 35px;
+  border-radius: 50%;
+}
+
+.comment-user-name{
+display:inline;
+vertical-align: top;
+}
+
+.comment-content{
+  display: inline-block;
+  padding: 10px;
+  background: white;
+  border-radius: 16px;
+  margin: 0 10px;
+  overflow: auto;
+  line-height: 1.5;
+  font-family: $normalFont;
+}
+
+.post-info, .comment-info, .comment-form{
+  display:flex;
+  padding: 5px;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.comment-form{
+  padding: 10px 0px;
+  margin-right: 15px;
+}
+
+.post-content{
+  padding: 10px 12px 10px 12px;
+  font-family: $appFont;
+  line-height: 1.5;
+  font-size: 17px;
+}
+
+.post-photo{
+  padding: 10px;
+  width: 40%;
+  margin: auto;
+  display: block;
+}
+
+.name-and-date{
+  padding: 6px 0px 0px 6px;
+  font-family: $appFont;
+}
+
+.name-and-date h6{
+  font-family: $normalFont;
+}
+
+.comment-textarea{
+  resize: none;
+  outline: 0;
+  border: none;
+  border-radius: 16px;
+  width: 100%;
+  padding: 10px;
+  margin-left: 10px;
+  font-family: $normalFont;
+  font-size: 16px;
+  color: $darkGreen;
+  transition: .5s;
+}
+
+.comment-textarea:focus{
+  box-shadow: 0 0 4px grey;
+}
+
+.comment-option{
+  border: none;
+  background: transparent;
+  color: $darkGreen;
+  cursor: pointer;
+  padding: 0 3px 0 0;
+}
+
+.comment-option:hover, .comment-option:focus{
+  text-decoration: underline;
+}
+
+/*Create Post*/
+.post-form{
+  background: white;
+  width: 80%;
+  margin: auto;
+  box-shadow: 0 0 4px grey;
+  border-radius: 10px;
+}
+
+.create-post-textarea{
+  width:100%;
+  height: 80px;
+  margin: auto;
+  display: block;
+  border: 2px solid transparent;
+  outline: 0;
+  resize: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-family: $normalFont;
+  font-size: 16px;
+  color: $darkGreen;
+  box-shadow: none;
+  transition: .5s;
+}
+
+.create-post-textarea:focus{
+  border: 2px solid rgb(181, 179, 179);
+  border-bottom: 2px solid transparent;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.modal .post-form{
+  margin-top: 70px;
+}
+
+input[type="radio"] {
+  position: fixed;
+  opacity: 0;
+}
+
+.radio-buttons{
+  display: block;
+  width: fit-content;
+  margin: auto;
+  border-radius: 7px;
+}
+
+.post-form label, .post-form button{
+  display: inline-block;
+  padding: 7px;
+  cursor: pointer;
+  opacity:.7;
+  border: 2px solid transparent;
+  font-family: $appFont;
+  font-size: 15px;
+  transition: .5s;
+}
+
+.post-form button{
+  background: $beige;
+  color: $darkGreen;
+  border-bottom-right-radius: 5px;
+}
+
+.post-form label:hover, .post-form button:hover, .post-form label:focus, .post-form button:focus {
+  opacity: 1;
+  border: 2px solid $darkGreen;
+}
+
+.bottom-options{
+  background: $lightGray;
+  border-radius: 5px;
+}
+
+.post-form label.border{
+  opacity: 1;
+  border: 2px solid $darkGreen;
+}
+
+section.upload-and-post{
+  margin: auto;
+  width: fit-content;
+}
+
+section.upload-and-post .upload-photo{
+  margin-right: 20px;
+}
+
+.divider{
+  margin: 0;
+}
+
+@media(min-width: 550px){
+  .divider{
+    display: none;
+  }
+
+  section.upload-and-post{
+    margin: 0;
+  }
+
+  .bottom-options{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .post-form button{
+    display: inline-block;
+  }
+
+  .radio-buttons{
+    display: inline;
+    margin: 0;
+  }
+}
+
+@media (min-width: 900px){
+  .modal .post-form {
+    margin-left: 30%;
+    width: 600px;
+  }
+  .post-photo {
+    width: 100%;
+  }
+
+}
+
+@media (min-width: 1100px){
+  .modal .post-form {
+    margin-left: 25%;
+    width: 800px;
+  }
+}

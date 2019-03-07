@@ -4,14 +4,20 @@ import {Field, reduxForm, focus} from 'redux-form';
 import Input from '../common/input';
 import {login} from '../../actions/auth';
 import {required, nonEmpty} from '../common/validators';
-import {Link} from 'react-router-dom';
+import { display, focusOn } from '../../actions/navigation'
+import { formError } from '../../actions/auth'
 
 export class LogInForm extends React.Component {
     onSubmit(values) {
-        return this.props.dispatch(login(values['login-username'], values.password));
+        return this.props.dispatch(login(values.loginUsername, values.password));
     }
 
-    render() {
+    onClick(focus=""){
+        this.props.dispatch(display(focus));
+        this.props.dispatch(focusOn(focus));
+    }
+    
+    generateError(){
         let error;
         if (this.props.error) {
             error = (
@@ -20,6 +26,21 @@ export class LogInForm extends React.Component {
                 </div>
             );
         }
+        else if(this.props.formError){
+            error = (
+                <div className="form-error" aria-live="polite">
+                    {this.props.formError}
+                </div>
+            );            
+        }
+        return error;
+    }
+
+    componentWillUnmount(){
+        this.props.dispatch(formError(null));
+    }
+
+    render() {
 
         return (
             <form
@@ -28,28 +49,40 @@ export class LogInForm extends React.Component {
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-                <h2>Sign in Below</h2>
-                {error}
-                <label htmlFor="login-username">Username</label>
+                <h2>Sign In</h2>
+                {this.generateError()}
                 <Field
                     component={Input}
                     ref={input => (this.input = input)}
                     type="text"
-                    name="login-username"
-                    id="login-username"
+                    name="loginUsername"
+                    id="loginUsername"
+                    label="Username"
                     validate={[required, nonEmpty]}
                 />
-                <label htmlFor="password">Password</label>
                 <Field
                     component={Input}
                     type="password"
                     name="password"
+                    label="Password"
                     validate={[required, nonEmpty]}
                 />
                
-                <button disabled={this.props.pristine || this.props.submitting}>
+                <button 
+                type="submit"
+                className="submit"
+                >
                     Log in
                 </button>
+                <div className="bottom-text">
+                    <p>Don't Have An Account? 
+                        <button
+                        type="button"
+                        className="link-to-form"
+                        onClick={()=>this.onClick('registerUsername')} 
+                        > Sign Up Here!</button>
+                    </p>    
+                </div>
             </form>
         );
     }
@@ -57,6 +90,7 @@ export class LogInForm extends React.Component {
 
 const mapStateToProps = state => ({
     focusOn: state.nav.focusOn,
+    formError: state.auth.formError
 });
 
 export default connect(mapStateToProps)(reduxForm({

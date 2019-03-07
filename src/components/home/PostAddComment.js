@@ -1,46 +1,62 @@
 import React from 'react'; 
 import { connect } from 'react-redux';
-
-import { addComment } from '../../actions/comments';
+import { addComment, commentBeingEdited } from '../../actions/comments';
 import { updatePost } from '../../actions/posts'; 
-
 import moment from 'moment';
 
 export class PostAddComment extends React.Component {
     constructor(props){
         super(props);
 
-        this.test='';
+        this.comment='';
     }
+
+    componentDidMount(){
+        //listens for the server when the new post has been created
+        this.props.socket.on('new_comment', post => {
+          this.props.dispatch(updatePost(post));
+        })
+        this.props.socket.on('edit_comment', post => {
+            this.props.dispatch(updatePost(post));
+        })
+      }
+
+
     onSubmit(e) {
         e.preventDefault();
+        if(this.comment.trim()===""){
+            return;
+        }
+
+        let commentId = this.props.commentBeingEdited ? this.props.commentBeingEdited.id : null;
+        let postId = this.props.commentBeingEdited ? this.props.commentBeingEdited.postId : this.props.form;
         
         let date = moment().format('LLLL');
-        this.props.dispatch(addComment(this.test, date, this.props.currentUser.id, this.props.form));   
-        this.content.value="";    
+        this.props.dispatch(addComment(this.comment, date, this.props.currentUser.id, postId, commentId));   
+        this.content.value="";   
+
+        this.props.dispatch(commentBeingEdited(null))
     }  
 
     handleKeyDown(e){
         if (e.keyCode === 13 && !e.shiftKey)
         {
             //form should submit
-            this.test=this.content.value
+            this.comment=this.content.value
             this.onSubmit(e);
         }
         else if(e.keyCode===13 && e.shiftKey){
-          this.test = this.content.value + ' <br/> ';
+          this.comment = this.content.value + ' \n ';
+        }
+        else if (e.keyCode===27){
+            //cancel comment
+            this.props.dispatch(commentBeingEdited(null))
         }
     }
-    componentDidMount(){
-        console.log('socket in COMMENT:', this.props.socket)
-        //listens for the server when the new post has been created
-        this.props.socket.on('new_comment', post => {
-          console.log(post); 
-          this.props.dispatch(updatePost(post));
-        })
-      }
 
     render() {   
+        let editMode = this.props.commentBeingEdited ? true : false;
+
         return (
             <form 
                 onSubmit={(e)=> this.onSubmit(e)}
@@ -61,27 +77,36 @@ export class PostAddComment extends React.Component {
 
                 <textarea 
                     className="comment-textarea" 
-                    ref={input => this.content = input} 
+                    ref={input => this.content = input}
                     type="textarea" 
                     id="content" 
                     name="content" 
                     placeholder="Write a Comment"
                     onKeyDown={(e)=>this.handleKeyDown(e)} 
-                    // defaultValue={editMode ? this.props.editPost.content : ""}
+                    defaultValue={editMode ? this.props.commentBeingEdited.content : ""}
                 />
+
+                {
+                    this.props.commentBeingEdited &&
+                    <button 
+                        className="comment-option"
+                        type="button" 
+                        onClick={()=> this.props.dispatch(commentBeingEdited(null)) }>
+                        Cancel
+                    </button>
+                }
             </form>
         )
     }
 }
 
 const mapStateToProps = state => {
-    console.log(state); 
     return {
         currentUser: state.auth.currentUser,
         coords: state.geolocation.coords,
         postsArray: state.posts.posts, 
         socket:state.socket.socket, 
-        comments:state.comment
+        commentBeingEdited:state.comments.commentBeingEdited,
     }
   };
   

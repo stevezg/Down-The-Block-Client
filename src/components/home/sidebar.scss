@@ -1,0 +1,112 @@
+@import "~../common/constants.scss";
+.sidebar{
+  margin-top:20px;
+}
+
+.sidebar .content, .sidebar .nav-parent{
+  display: block;
+  color:  $darkGreen;
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 20px 0;
+  text-decoration: none;
+  text-align: left;
+  padding:10px 20px 10px 40px;
+  font-family: $appFont;
+  width: 200px;
+}
+
+.other.content{
+  padding:0;
+}
+
+.sidebar section.content{
+  display:flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.close-chat{
+  background: transparent;
+  border: none;
+  cursor: pointer; 
+  display: block;
+  opacity: .5;
+  transition: .5s;
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+}
+
+.sidebar .chat-content{
+  margin: 0;
+  color:  $darkGreen;
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  width: inherit;
+  text-align: left;
+  padding: 10px 10px 10px 40px;
+  font-family: $appFont;
+}
+
+.sidebar .nav-parent{
+  color: $darkGreen;
+  padding: 10px;
+  font-size: 17px;
+}
+
+.sidebar .content:hover, 
+.sidebar .content:focus, 
+.sidebar .content:hover .chat-content, 
+.sidebar .chat-content:focus, 
+.sidebar .nav-parent:hover, 
+.sidebar .nav-parent:focus{
+  outline: 0;
+  background: $darkGreen;
+  color: $beige;
+}
+
+.sidebar .content:hover .close-chat, .sidebar .close-chat:focus{
+  color: $darkGreen;
+  background: $beige;
+  border-radius: 50%;
+}
+
+.sidebar .close-chat:hover, .sidebar .close-chat:focus{
+  opacity: 1;
+}
+
+.open-sidebar{
+  position: fixed;
+  z-index: 1000;
+  color: $beige;
+  background: transparent;
+  outline: 0;
+  border: 2px solid transparent;
+  margin-left: 5px;
+  margin-top: 13px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: ease-in-out .5s;
+}
+
+.fa-angle-down, .fa-angle-up{
+  vertical-align: middle;
+  padding-left: 5px;
+  font-size: 18px;
+}
+
+@media(min-width: 750px){
+  .open-sidebar{
+    font-size: 25px;
+    margin-top: 15px;
+    margin-left: 1px;
+  }
+}

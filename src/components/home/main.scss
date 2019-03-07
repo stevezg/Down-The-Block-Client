@@ -1,5 +1,15 @@
+@import "~../common/constants.scss";
+
 .main{
-  margin-left: 200px;
+  margin: 0;
+  background: $lightGray;
+  padding-top: 60px;
+  outline: 0;
+}
+
+.main:focus{
+  outline: 0;
+  outline-color: transparent;
 }
 
 .modal {
@@ -14,4 +24,14 @@
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+.forum{
+  padding-bottom: 50px;
+}
+
+@media(min-width: 900px){
+  .main{
+    margin-left: 200px;
+  }
 }
