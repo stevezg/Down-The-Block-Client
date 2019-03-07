@@ -1,0 +1,25 @@
+#app{
+  display: block;
+}
+
+.houses{
+  width: 100%;
+  margin: auto 0px;
+  font-size: 50px;
+}
+
+.houses h1{
+  font-size: 40px;
+}
+
+@media(min-width: 800px){
+  .houses{
+    width: 85%;
+    margin: auto;
+    font-size: 100px;
+  } 
+
+  .houses h1{
+    font-size: 80px;
+  }
+}

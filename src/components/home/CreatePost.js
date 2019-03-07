@@ -43,7 +43,7 @@ export class CreatePost extends React.Component{
   componentDidMount(){
     //listens for the server when the new post has been created
     this.props.socket.on('new_post', post => {
-      //only do something with the post received if its within geofilter
+      //only do something with the post received if its within geolocation
       if(withinRadius(post.coordinates, this.props.coords, this.props.display)){
         this.props.dispatch(addNewPost(post));
       } 

@@ -50,7 +50,7 @@
 
 :point_right: Use pagination instead of infinite scroll 
 
-:point_right: Display a map of user’s geofilter
+:point_right: Display a map of user’s geolocation
 
 ## Team
 <a href="https://github.com/nikmash711" target="_blank"> **Nikkie Mashian**</a>: Product Manager & Design Lead
@@ -67,8 +67,6 @@
 [Deployed Server On Heroku](https://down-the-block-server.herokuapp.com/)
 
 [Deployed Client On Heroku](https://down-the-block.herokuapp.com)
-
-[Project Management Trello Link](https://trello.com/b/hPCzbOTZ/neighborhood-watch "trello")
 
 ## Demo Info (Friends Edition)
 **Since this is  a geolocation app, to properly see the pre-populated demo you must block your location on your browser**

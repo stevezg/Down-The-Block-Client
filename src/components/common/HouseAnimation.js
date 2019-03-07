@@ -1,4 +1,5 @@
 import React from 'react';
+import uuidv4 from 'uuid/v4';
 import './houseanimation.css'
 
 export default class HouseAnimation extends React.Component{
@@ -8,15 +9,14 @@ export default class HouseAnimation extends React.Component{
     this.state={
       housesRight:[],
       housesLeft:[],
-      houseIcon: <i style={styles.houseIcon} className="fas fa-home"></i>
     }
   }
   
   componentDidMount(){
     this.tick = setInterval(()=>
       this.setState(
-        {housesLeft:[this.state.houseIcon, ...this.state.housesRight], 
-        housesRight:[...this.state.housesLeft, this.state.houseIcon]}), 400)
+        {housesLeft:[<i key={uuidv4()} style={styles.houseIcon} className="fas fa-home"></i>, ...this.state.housesRight], 
+        housesRight:[...this.state.housesLeft, <i key={uuidv4()} style={styles.houseIcon} className="fas fa-home"></i>]}), 600)
   }
 
   componentWillUnmount(){
@@ -24,7 +24,8 @@ export default class HouseAnimation extends React.Component{
   }
 
   render(){
-    return( 
+    return(
+      <main style={styles.mainContainer}>
         <section style={styles.houses} className="houses">
           <div style={styles.houseDivRight} className="houses-right">
             {this.state.housesRight}
@@ -35,15 +36,18 @@ export default class HouseAnimation extends React.Component{
             {this.state.housesLeft}
           </div>
         </section>
+      </main> 
     );
   }
 }
 
 const styles = {
-  houses: {
-    paddingTop: 200,
-    fontSize:100,
+  mainContainer: {
+    display: 'flex',
     height: '100vh',
+    background: 'rgb(237, 236, 217)'
+  },
+  houses: {
     background: 'rgb(237, 236, 217)'
   },
   houseIcon: {
@@ -51,17 +55,10 @@ const styles = {
     padding: 20, 
   },
   heading: {
-    fontSize: 80,
     color: '#06311f',
     textAlign: 'center',
     fontFamily: 'Play',
     padding: 20
-  },
-  road: {
-    fontSize: 80,
-    color: '#06311f',
-    textAlign: 'center',
-    display: 'inline',
   },
   houseDivLeft: {
     overflow: 'hidden',
@@ -71,7 +68,7 @@ const styles = {
   },
   houseDivRight: {
     overflow: 'hidden',
-    height: 150,
+    maxHeight: 150,
     display: 'flex',
     justifyContent: 'flex-end',
   }
