@@ -11,16 +11,21 @@
     <meta name="og:site_name" content="DownTheBlock"/>
     <meta name="og:description" content="Stay informed by connecting you with all your neighbors!"/>
 
+    <style>
+      #app { display: none }
+    </style>
+
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!-- put in a css global stylesheet that can be used so theres no FOUC -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Play" rel="stylesheet"> -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfIG7Rk6SviWHCKVkf0dAh7TiefA9XJUY&libraries=places"></script>
+    
 
     <title>DownTheBlock</title>
   </head>
-  <body>
+  <body id="app">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

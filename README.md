@@ -51,7 +51,7 @@
 
 :point_right: Use pagination instead of infinite scroll 
 
-:point_right: Display a map of user’s geofilter
+:point_right: Display a map of user’s geolocation
 
 ## Team
 <a href="https://github.com/nikmash711" target="_blank"> **Nikkie Mashian**</a>: Product Manager & Design Lead

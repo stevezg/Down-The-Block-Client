@@ -184,6 +184,7 @@ class SidebarNav extends React.Component{
               </section>}
             </nav>
           }
+          children=""
           open={this.state.sidebarOpen}
           docked={this.state.sidebarDocked}
           onSetOpen={this.onSetSidebarOpen}
