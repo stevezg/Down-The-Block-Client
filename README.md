@@ -71,7 +71,7 @@ DownTheBlock connects you with your neighborhood and provides a convenient way o
 
 <a href="https://github.com/IllegalSkillsException-active" target="_blank"> **Taylor Merrill**</a>: QA Lead
 
-<a href="https://github.com/stevezg" target="_blank"> **Steve Anderson**</a>: Software Engineer
+<a href="https://github.com/stevezg" target="_blank"> **Steve Anderson**</a>: Technical Product Manager
 
 ## Links
 
