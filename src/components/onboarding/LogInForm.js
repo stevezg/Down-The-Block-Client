@@ -81,7 +81,20 @@ export class LogInForm extends React.Component {
                         className="link-to-form"
                         onClick={()=>this.onClick('registerUsername')} 
                         > Sign Up Here!</button>
-                    </p>    
+                    </p>   
+                    <p>Want To See A Live Demo?
+                        <button
+                        type="button"
+                        className="link-to-form"
+                        onClick={()=>{
+                            let values = {
+                                loginUsername:'ross',
+                                password:"friends123",
+                            }
+                            this.onSubmit(values)
+                        }} 
+                        > Click Here!</button>
+                    </p>  
                 </div>
             </form>
         );

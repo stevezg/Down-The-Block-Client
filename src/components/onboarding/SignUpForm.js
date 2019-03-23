@@ -117,7 +117,7 @@ export class SignUpForm extends React.Component {
                     type="password"
                     name="passwordConfirm"
                     validate={[required, nonEmpty, matchesPassword]}
-                    label="Password Confirmation"
+                    label="Confirm Password"
                 />
 
                 <button 
