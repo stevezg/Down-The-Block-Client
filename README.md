@@ -41,7 +41,8 @@
 - Socket.io 
 
 **Workflow**
-- Agile/SCRUM 
+- Agile/SCRUM
+- Daily Standup
 
 ## Future Updates
 :point_right: Send notifications when a user has an unread chat
@@ -59,7 +60,7 @@
 
 <a href="https://github.com/IllegalSkillsException-active" target="_blank"> **Taylor Merrill**</a>: QA Lead
 
-<a href="https://github.com/stevezg" target="_blank"> **Steve Anderson**</a>: DevOps Lead
+<a href="https://github.com/stevezg" target="_blank"> **Steve Anderson**</a>: Software Engineer
 
 ## Links
 [Server Repo](https://github.com/thinkful-ei26/Down-The-Block-Server)
